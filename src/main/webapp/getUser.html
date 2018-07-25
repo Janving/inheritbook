@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+  <input type="button" value="通过AJAX获取多个对象" id="sender">  
+    
+    <div id="messageDiv"></div> 
+        
+    <script> 
+    $('#sender').click(function(){ 
+        var url="findAllUsers"; 
+        $.post(
+                url,
+                function(data) {           
+                    var users = data;        	
+             
+                     for(i in users){
+                         var old = $("#messageDiv").html();
+                         var user = users[i];
+                         $("#messageDiv").html(old + "<br>"+user.id+"   -----   "+user.name); 
+                     }
+         });  
+    
+    }); 
+    </script>
+    
+    
+</body>
+</html>

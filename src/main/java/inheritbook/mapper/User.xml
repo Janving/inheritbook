@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.UserMapper">
+    
+    <resultMap id="UserMap" type="User">   
+        <id column="user_id" property ="id"/>
+        <result column="user_name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="role_id" property="roleid"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="major_id" property="majorid"/>
+        <result column="age" property="age"/>
+        <result column="createtime" property="createtime"/>
+        <result column="updatetime" property="updatetime"/>
+    
+    </resultMap> 
+        <select id="findAllUsers" resultMap="UserMap">
+            select * from user
+        </select>   
+    </mapper>
