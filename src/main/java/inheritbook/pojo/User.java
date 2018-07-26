@@ -50,6 +50,11 @@ public class User extends AbstractPojo{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	@Override
+	public String toString() {
+		return "User [password=" + password + ", email=" + email + ", phone=" + phone + ", roleid=" + roleid
+				+ ", majorid=" + majorid + ", age=" + age + "]";
+	}
 	
 	
 	

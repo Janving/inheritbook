@@ -12,4 +12,6 @@ import inheritbook.pojo.User;
 public interface UserService {
 
 	List<User> findAllUsers();
+	
+	User login(User user);
 }

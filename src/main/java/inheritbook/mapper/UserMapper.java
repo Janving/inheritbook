@@ -12,4 +12,6 @@ import inheritbook.pojo.User;
 public interface UserMapper {
 
 	List<User> findAllUsers();
+	
+	User getAUser(User user);
 }

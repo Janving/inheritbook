@@ -21,4 +21,8 @@
         <select id="findAllUsers" resultMap="UserMap">
             select * from user
         </select>   
+        
+        <select id="getAUser" resultMap="UserMap">
+            select * from user where user_name=#{name}
+        </select>
     </mapper>
