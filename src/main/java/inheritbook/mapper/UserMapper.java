@@ -14,4 +14,6 @@ public interface UserMapper {
 	List<User> findAllUsers();
 	
 	User getAUser(User user);
+	
+	int register(User user);
 }

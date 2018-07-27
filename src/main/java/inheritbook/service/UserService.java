@@ -14,4 +14,6 @@ public interface UserService {
 	List<User> findAllUsers();
 	
 	User login(User user);
+	
+	int register(User user);
 }

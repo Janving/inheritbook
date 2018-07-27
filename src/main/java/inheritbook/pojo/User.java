@@ -13,7 +13,31 @@ public class User extends AbstractPojo{
 	private int roleid;
 	private int majorid;
 	private int age;
+	private int id;
+	private String name;
 	
+	//注册识别码
+	private String eid;
+	
+	
+	public String getEid() {
+		return eid;
+	}
+	public void setEid(String eid) {
+		this.eid = eid;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getRoleid() {
 		return roleid;
 	}
@@ -53,8 +77,9 @@ public class User extends AbstractPojo{
 	@Override
 	public String toString() {
 		return "User [password=" + password + ", email=" + email + ", phone=" + phone + ", roleid=" + roleid
-				+ ", majorid=" + majorid + ", age=" + age + "]";
+				+ ", majorid=" + majorid + ", age=" + age + ", id=" + id + ", name=" + name + "]";
 	}
+	
 	
 	
 	
