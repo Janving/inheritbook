@@ -34,4 +34,13 @@
             insert into user (user_name,password,role_id,email,createtime,updatetime) 
             values (#{name},#{password},4,#{email},CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
         </insert>
+        
+        <update id="update" parameterType="User">
+            update user set email=#{email}, phone=#{phone},major_id=#{majorid},age=#{age},nickname=#{nickname},updatetime=CURRENT_TIMESTAMP
+            where user_id=#{id}
+        </update>
+        
+        <delete id="delete" parameterType="User">
+             delete from user where user_id=#{id}
+        </delete>
     </mapper>

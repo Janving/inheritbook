@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.BookMapper">
+    <resultMap type="Book" id="BookMap">
+        <id column="book_id" property="bookid"/>
+        <result column="book_name" property="bookname"/>
+        <result column="major_id" property="majorid"/>
+        <result column="description" property="description"/>
+        <result column="version" property="version"/>
+        <result column="author" property="author"/>
+        <result column="publisher" property="publisher"/>
+        <result column="pic" property="pic"/>
+        <result column="scorenum" property="scorenum"/>
+        <result column="score" property="score"/>
+        <result column="course_id" property="course_id"/>
+        <result column="status" property="status"/>
+        
+        <result column="createtime" property="createtime"/>
+        <result column="updatetime" property="updatetime"/>
+      
+    </resultMap>
+    
+    <insert id="add" parameterType="Book">
+        insert into book (book_name,major_id,description,version,author,publisher,pic,scorenum,score,course_id,
+        createtime,updatetime) values
+        (#{bookname},#{majorid},#{description},#{version},#{author},#{publisher},#{pic},#{scorenum},
+        #{score},#{course_id},CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+    </insert>
+    
+    <select id="getBookByCourse" parameterType="_int">
+        select * from book where course_id=#{courseid}
+    </select>
+    
+    <select id="getaBookById" parameterType="_int">
+        select * from book where book_id=#{bookid} 
+    </select>
+    
+    <select id="update" parameterType="Book">
+        update book set book_name=#{bookname},updatetime=CURRENT_TIMESTAMP,major_id=#{majorid},
+        description=#{description},version=#{version},author=#{author},publisher=#{publisher},
+        pic=#{pic},socrenum=#{scorenum},score=#{score},course_id=#{courseid}
+    </select>
+    
+    
+    
+    </mapper>

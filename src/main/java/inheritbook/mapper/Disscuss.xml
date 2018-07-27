@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.DiscussMapper">
+    <resultMap id="DiscussMap" type="Discuss">
+        <id column="discuss_id" property ="discussid"/>
+        <result column="parent_id" property="parentid"/>
+        <result column="comment" property="comment"/>
+        <result column="display" property="display"/>
+        <result column="user_id" property="userid"/>         
+        <result column="course_id" property="courseid"/>    
+        <result column="createtime" property="createtime"/>
+        <result column="book_id" property="book_id"/>
+        <result column="parent_user_id" property="parentuserid"/>
+        <result column="parentusername" property="parentusername"/>
+      
+    </resultMap>
+    
+    <insert id="add" parameterType="Discuss">
+        insert into discuss(parent_id,comment,user_id,course_id,book_id,parent_user_id,parent_user_name,createtime)
+        values
+        #{parentid},#{comment},#{userid},#{courseid},#{bookid},
+        #{parentuserid},#{parentusername},CURRENT_TIMESTAMP)
+        
+    </insert>
+    
+    <update id="hide" parameterType="Discuss">
+        update discuss set display=0  
+        where discuss_id=#{discussid}
+    </update>
+    
+    <select id="getDiscussOnBook" resultMap="DiscussMap" parameterType="_int">
+        select * from discuss where book_id=#{bookid}
+    </select>
+    
+    <select id="getDiscussOnCourse" resultMap="DiscussMap" parameterType="_int">
+        select * from discuss where course_id=#{courseid}
+    </select>
+    
+   
+    </mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.CollegeMapper">
+    
+    <resultMap id="CollegeMap"  type="College">
+    <id column="college_id" property="collegeid"/>
+    <result column="college_name" property="collegename"/>
+    <result column="school_id" property="schoolid"/>
+     <result column="createtime" property="createtime"/>
+     <result column="updatetime" property="updatetime"/>
+    </resultMap>
+    
+    <select id="getCollegeBySchool" parameterType="_int" resultMap="CollegeMap">
+        select * from college where school_id=#{schoolid}
+    </select>
+    
+    </mapper>

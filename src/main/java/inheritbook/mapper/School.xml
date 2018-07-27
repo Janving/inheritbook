@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.SchoolMapper">
+    <resultMap type="School" id="SchoolMap">
+        <id column="school_id" property="schoolid"/>
+        <result column="school_name" property="schoolname"/>
+        <result column="locatiion" property="location"/>
+        <result column="createtime" property="createtime"/>
+        <result column="updatetime" property="updatetime"/>
+      
+    </resultMap>
+    <select id="findAllSchools" resultMap="SchoolMap">
+        select * from school 
+    </select>
+    
+    
+    </mapper>

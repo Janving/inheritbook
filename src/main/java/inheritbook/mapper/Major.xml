@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.MajorMapper">
+    <resultMap id="MajorMap" type="Major">
+        <id column="major_id" property="majorid"/>
+        <result column="major_name" property="majorname"/>
+        <result column="college_id" property="collegeid"/>
+         <result column="createtime" property="createtime"/>
+     <result column="updatetime" property="updatetime"/>  
+    </resultMap>
+    
+    <select id="getMajorByCollege" parameterType="_int" resultMap="MajorMap">
+        select * from major where college_id=#{collegeid}
+    </select>
+    
+    </mapper>

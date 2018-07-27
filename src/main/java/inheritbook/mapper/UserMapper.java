@@ -16,4 +16,10 @@ public interface UserMapper {
 	User getAUser(User user);
 	
 	int register(User user);
+	
+	void update(User user);
+	
+	int updatepassword(User user);
+	
+	void delete(User user);
 }

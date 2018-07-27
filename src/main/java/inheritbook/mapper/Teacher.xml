@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="inheritbook.mapper.TeacherMapper">
+    <resultMap type="Teacher" id="TeacherMap">
+        <id column="teacher_id" property="teacherid"/>
+        <result column="teacher_name" property="teachername"/>
+        <result column="difficulty" property="difficulty"/>
+        <result column="difficulty_num" property="difficultynum"/>
+        <result column="score" property="score"/>
+        <result column="course_id" property="courseid"/>
+      
+    </resultMap>
+    
+    <insert id="add" parameterType="Teacher">
+        insert into teacher (teacher_name,difficulty,difficulty_num,score,score_num,courseid)
+        values
+        (#{teachername},0,0,0,0,#{courseid})
+    </insert>
+    
+    <delete id="delete" parameterType="Teacher">
+        delete from teacher where teacher_id=#{teacherid}
+    </delete>
+    
+    <select id="getTeacherByCourse" resultMap="TeacherMap" parameterType="_int">
+        select * from teacher where course_id=#{courseid}
+    </select>
+    
+    
+    </mapper>

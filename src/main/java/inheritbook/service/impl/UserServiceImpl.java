@@ -47,4 +47,29 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	@Override
+	public boolean exit(String username) {
+		boolean b=false;
+		User user= new User();
+		user.setName(username);
+		
+		User nuser=usermapper.getAUser(user);
+		if(nuser!=null) {
+			b=true;
+		}
+		return b;
+	}
+
+	@Override
+	public void update(User user) {
+		
+		usermapper.update(user);
+		
+	}
+
+	@Override
+	public void delete(User user) {
+		usermapper.delete(user);
+	}
+
 }
