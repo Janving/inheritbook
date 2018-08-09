@@ -3,6 +3,8 @@ package inheritbook.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import inheritbook.mapper.UserMapper;
@@ -16,9 +18,11 @@ import inheritbook.service.UserService;
  * 2018年7月26日-上午10:53:57
  */
 @Service
+
 public class UserServiceImpl implements UserService {
 	@Autowired UserMapper usermapper;
 	
+	@Cacheable(value="users", key="#id")
 	public List<User> findAllUsers() {
 		
 		return usermapper.findAllUsers();

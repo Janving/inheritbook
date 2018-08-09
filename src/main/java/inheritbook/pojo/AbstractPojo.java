@@ -8,12 +8,11 @@ import java.util.Date;
  *
  * 2018年7月25日-上午11:07:00
  */
-public class AbstractPojo {
+public abstract class AbstractPojo {
 
 
 	private Date updatetime;
 	private Date createtime;
-	
 	
 	
   
