@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 /*
  * springboot启动
  */
-
+//idea
 @SpringBootApplication
 
 public class Application {
